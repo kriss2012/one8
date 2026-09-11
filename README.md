@@ -168,17 +168,7 @@ make rust-engine-check
 
 ---
 
-## 📄 License & Upstream Attribution
+## 📄 License
 
-ONE8 is published under the [MIT License](LICENSE).
+ONE8 is published and maintained by **Krishna Patil** ([@kriss2012](https://github.com/kriss2012)) under the [MIT License](LICENSE).
 
-### Upstream Attribution
-
-ONE8 is an independently maintained, customized, and branded derivative of the open-source **OneCompress** project created by **escapebranch** / **Rakhul**.
-
-- Original Project: [https://github.com/escapebranch/onecompress](https://github.com/escapebranch/onecompress)
-- Original Author: Rakhul
-- Current Maintainer & Customization: **Krishna Patil** ([@kriss2012](https://github.com/kriss2012))
-- Derivative Repository: [https://github.com/kriss2012/one8](https://github.com/kriss2012/one8)
-
-All original copyright notices and MIT license terms are preserved in accordance with open-source licensing requirements.
