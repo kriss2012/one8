@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" width="100%" height="100%">
+  <defs>
+    <!-- Simple drop shadow for depth -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Vibrant blue gradient for front faces -->
+    <linearGradient id="frontBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#0052d4"/>
+    </linearGradient>
+
+    <!-- Specular rim highlight -->
+    <linearGradient id="specular" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Arrow Pointing Down (Shifted closer) -->
+    <g id="downArrow">
+      <path d="M 110 48
+               A 5 5 0 0 1 115 43
+               L 135 43
+               A 5 5 0 0 1 140 48
+               L 140 78
+               L 155 78
+               A 5 5 0 0 1 158.5 85
+               L 128.5 115
+               A 5 5 0 0 1 121.5 115
+               L 91.5 85
+               A 5 5 0 0 1 95 78
+               L 110 78
+               Z" />
+    </g>
+
+    <!-- Arrow Pointing Up (Shifted closer) -->
+    <g id="upArrow">
+      <path d="M 110 202
+               A 5 5 0 0 0 115 207
+               L 135 207
+               A 5 5 0 0 0 140 202
+               L 140 172
+               L 155 172
+               A 5 5 0 0 0 158.5 165
+               L 128.5 135
+               A 5 5 0 0 0 121.5 135
+               L 91.5 165
+               A 5 5 0 0 0 95 172
+               L 110 172
+               Z" />
+    </g>
+  </defs>
+
+  <g transform="translate(125, 125) scale(1.15) translate(-125, -125)" filter="url(#shadow)">
+    <!-- DOWN ARROW (Extruded 3D Layers) -->
+    <use href="#downArrow" x="12" y="16" fill="#001429"/>
+    <use href="#downArrow" x="11.25" y="15" fill="#001a33"/>
+    <use href="#downArrow" x="10.5" y="14" fill="#002244"/>
+    <use href="#downArrow" x="9.75" y="13" fill="#002b55"/>
+    <use href="#downArrow" x="9" y="12" fill="#003366"/>
+    <use href="#downArrow" x="8.25" y="11" fill="#003c77"/>
+    <use href="#downArrow" x="7.5" y="10" fill="#004488"/>
+    <use href="#downArrow" x="6.75" y="9" fill="#004d99"/>
+    <use href="#downArrow" x="6" y="8" fill="#0055aa"/>
+    <use href="#downArrow" x="5.25" y="7" fill="#005ebb"/>
+    <use href="#downArrow" x="4.5" y="6" fill="#0066cc"/>
+    <use href="#downArrow" x="3.75" y="5" fill="#0073e6"/>
+    <use href="#downArrow" x="3" y="4" fill="#0080ff"/>
+    <use href="#downArrow" x="2.25" y="3" fill="#1a8cff"/>
+    <use href="#downArrow" x="1.5" y="2" fill="#3399ff"/>
+    <use href="#downArrow" x="0.75" y="1" fill="#4da6ff"/>
+    
+    <!-- DOWN ARROW (Front Face & Highlight) -->
+    <use href="#downArrow" x="0" y="0" fill="url(#frontBlue)"/>
+    <use href="#downArrow" x="0" y="0" fill="none" stroke="url(#specular)" stroke-width="2"/>
+
+    <!-- UP ARROW (Extruded 3D Layers) -->
+    <use href="#upArrow" x="12" y="16" fill="#001429"/>
+    <use href="#upArrow" x="11.25" y="15" fill="#001a33"/>
+    <use href="#upArrow" x="10.5" y="14" fill="#002244"/>
+    <use href="#upArrow" x="9.75" y="13" fill="#002b55"/>
+    <use href="#upArrow" x="9" y="12" fill="#003366"/>
+    <use href="#upArrow" x="8.25" y="11" fill="#003c77"/>
+    <use href="#upArrow" x="7.5" y="10" fill="#004488"/>
+    <use href="#upArrow" x="6.75" y="9" fill="#004d99"/>
+    <use href="#upArrow" x="6" y="8" fill="#0055aa"/>
+    <use href="#upArrow" x="5.25" y="7" fill="#005ebb"/>
+    <use href="#upArrow" x="4.5" y="6" fill="#0066cc"/>
+    <use href="#upArrow" x="3.75" y="5" fill="#0073e6"/>
+    <use href="#upArrow" x="3" y="4" fill="#0080ff"/>
+    <use href="#upArrow" x="2.25" y="3" fill="#1a8cff"/>
+    <use href="#upArrow" x="1.5" y="2" fill="#3399ff"/>
+    <use href="#upArrow" x="0.75" y="1" fill="#4da6ff"/>
+    
+    <!-- UP ARROW (Front Face & Highlight) -->
+    <use href="#upArrow" x="0" y="0" fill="url(#frontBlue)"/>
+    <use href="#upArrow" x="0" y="0" fill="none" stroke="url(#specular)" stroke-width="2"/>
+  </g>
+</svg>

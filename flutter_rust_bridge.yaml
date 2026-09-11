@@ -1,0 +1,4 @@
+rust_root: rust/image_engine
+rust_input: crate::api::image_engine
+dart_output: lib/src/rust
+type_64bit_int: true

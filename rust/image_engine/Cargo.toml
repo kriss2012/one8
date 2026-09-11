@@ -1,0 +1,45 @@
+[package]
+name = "image_engine"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "image_engine"
+crate-type = ["rlib", "cdylib", "staticlib"]
+
+[dependencies]
+flutter_rust_bridge = "=2.12.0"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp"] }
+fast_image_resize = "5"
+rayon = "1.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+num_cpus = "1.16"
+# Structured logging — log is the facade, android_logger routes to logcat on Android
+log = "0.4"
+android_logger = "0.14"
+webp = "0.3"
+
+
+# CRITICAL FOR ENGINE PERFORMANCE IN DEBUG MODE:
+# Image processing algorithms (Huffman decode, IDCT, CatmullRom convolution)
+# are 50x-100x slower without SIMD and compiler optimizations.
+# Setting opt-level = 3 for dependencies ensures debug builds run at full hardware speed.
+[profile.dev]
+opt-level = 2
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+lto = "fat"          # Full LTO: allows cross-crate inlining & vectorization
+codegen-units = 1    # Single codegen unit for maximum optimization
+panic = "abort"      # No unwinding, smaller binary
+strip = true
+
+[profile.release.package."*"]
+opt-level = 3
+
+

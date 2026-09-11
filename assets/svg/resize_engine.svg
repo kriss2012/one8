@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" width="100%" height="100%">
+  <defs>
+    <!-- Simple drop shadow for depth -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Vibrant orange gradient for front faces -->
+    <linearGradient id="frontOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd000"/>
+      <stop offset="100%" stop-color="#fb8500"/>
+    </linearGradient>
+
+    <!-- Specular rim highlight -->
+    <linearGradient id="specular" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Arrow Pointing Up (Top Arrow) -->
+    <g id="upArrow">
+      <path d="M 110 108
+               A 5 5 0 0 0 115 113
+               L 135 113
+               A 5 5 0 0 0 140 108
+               L 140 78
+               L 155 78
+               A 5 5 0 0 0 158.5 71
+               L 128.5 41
+               A 5 5 0 0 0 121.5 41
+               L 91.5 71
+               A 5 5 0 0 0 95 78
+               L 110 78
+               Z" />
+    </g>
+
+    <!-- Arrow Pointing Down (Bottom Arrow) -->
+    <g id="downArrow">
+      <path d="M 110 142
+               A 5 5 0 0 1 115 137
+               L 135 137
+               A 5 5 0 0 1 140 142
+               L 140 172
+               L 155 172
+               A 5 5 0 0 1 158.5 179
+               L 128.5 209
+               A 5 5 0 0 1 121.5 209
+               L 91.5 179
+               A 5 5 0 0 1 95 172
+               L 110 172
+               Z" />
+    </g>
+
+    <!-- Top Corner Frame Bracket -->
+    <g id="topBracket">
+      <path d="M 90 32
+               A 5 5 0 0 1 100 32
+               L 100 24
+               L 150 24
+               L 150 32
+               A 5 5 0 0 1 160 32
+               L 160 20
+               A 7 7 0 0 0 153 13
+               L 97 13
+               A 7 7 0 0 0 90 20
+               Z" />
+    </g>
+
+    <!-- Bottom Corner Frame Bracket -->
+    <g id="bottomBracket">
+      <path d="M 90 218
+               A 5 5 0 0 0 100 218
+               L 100 226
+               L 150 226
+               L 150 218
+               A 5 5 0 0 0 160 218
+               L 160 230
+               A 7 7 0 0 1 153 237
+               L 97 237
+               A 7 7 0 0 1 90 230
+               Z" />
+    </g>
+  </defs>
+
+  <g transform="translate(125, 125) scale(0.85) translate(-125, -125)" filter="url(#shadow)">
+    <!-- TOP BRACKET (Extruded 3D Layers) -->
+    <use href="#topBracket" x="12" y="16" fill="#1f0f00"/>
+    <use href="#topBracket" x="10.5" y="14" fill="#331a00"/>
+    <use href="#topBracket" x="9" y="12" fill="#472400"/>
+    <use href="#topBracket" x="7.5" y="10" fill="#5c2e00"/>
+    <use href="#topBracket" x="6" y="8" fill="#7a3d00"/>
+    <use href="#topBracket" x="4.5" y="6" fill="#a35200"/>
+    <use href="#topBracket" x="3" y="4" fill="#cc6600"/>
+    <use href="#topBracket" x="1.5" y="2" fill="#f08000"/>
+    <use href="#topBracket" x="0" y="0" fill="url(#frontOrange)"/>
+    <use href="#topBracket" x="0" y="0" fill="none" stroke="url(#specular)" stroke-width="2"/>
+
+    <!-- BOTTOM BRACKET (Extruded 3D Layers) -->
+    <use href="#bottomBracket" x="12" y="16" fill="#1f0f00"/>
+    <use href="#bottomBracket" x="10.5" y="14" fill="#331a00"/>
+    <use href="#bottomBracket" x="9" y="12" fill="#472400"/>
+    <use href="#bottomBracket" x="7.5" y="10" fill="#5c2e00"/>
+    <use href="#bottomBracket" x="6" y="8" fill="#7a3d00"/>
+    <use href="#bottomBracket" x="4.5" y="6" fill="#a35200"/>
+    <use href="#bottomBracket" x="3" y="4" fill="#cc6600"/>
+    <use href="#bottomBracket" x="1.5" y="2" fill="#f08000"/>
+    <use href="#bottomBracket" x="0" y="0" fill="url(#frontOrange)"/>
+    <use href="#bottomBracket" x="0" y="0" fill="none" stroke="url(#specular)" stroke-width="2"/>
+
+    <!-- UP ARROW (Extruded 3D Layers) -->
+    <use href="#upArrow" x="12" y="16" fill="#1f0f00"/>
+    <use href="#upArrow" x="11.25" y="15" fill="#291400"/>
+    <use href="#upArrow" x="10.5" y="14" fill="#331a00"/>
+    <use href="#upArrow" x="9.75" y="13" fill="#3d1f00"/>
+    <use href="#upArrow" x="9" y="12" fill="#472400"/>
+    <use href="#upArrow" x="8.25" y="11" fill="#522900"/>
+    <use href="#upArrow" x="7.5" y="10" fill="#5c2e00"/>
+    <use href="#upArrow" x="6.75" y="9" fill="#663300"/>
+    <use href="#upArrow" x="6" y="8" fill="#7a3d00"/>
+    <use href="#upArrow" x="5.25" y="7" fill="#8f4700"/>
+    <use href="#upArrow" x="4.5" y="6" fill="#a35200"/>
+    <use href="#upArrow" x="3.75" y="5" fill="#b85c00"/>
+    <use href="#upArrow" x="3" y="4" fill="#cc6600"/>
+    <use href="#upArrow" x="2.25" y="3" fill="#e07000"/>
+    <use href="#upArrow" x="1.5" y="2" fill="#f08000"/>
+    <use href="#upArrow" x="0.75" y="1" fill="#f59500"/>
+    
+    <!-- UP ARROW (Front Face & Highlight) -->
+    <use href="#upArrow" x="0" y="0" fill="url(#frontOrange)"/>
+    <use href="#upArrow" x="0" y="0" fill="none" stroke="url(#specular)" stroke-width="2"/>
+
+    <!-- DOWN ARROW (Extruded 3D Layers) -->
+    <use href="#downArrow" x="12" y="16" fill="#1f0f00"/>
+    <use href="#downArrow" x="11.25" y="15" fill="#291400"/>
+    <use href="#downArrow" x="10.5" y="14" fill="#331a00"/>
+    <use href="#downArrow" x="9.75" y="13" fill="#3d1f00"/>
+    <use href="#downArrow" x="9" y="12" fill="#472400"/>
+    <use href="#downArrow" x="8.25" y="11" fill="#522900"/>
+    <use href="#downArrow" x="7.5" y="10" fill="#5c2e00"/>
+    <use href="#downArrow" x="6.75" y="9" fill="#663300"/>
+    <use href="#downArrow" x="6" y="8" fill="#7a3d00"/>
+    <use href="#downArrow" x="5.25" y="7" fill="#8f4700"/>
+    <use href="#downArrow" x="4.5" y="6" fill="#a35200"/>
+    <use href="#downArrow" x="3.75" y="5" fill="#b85c00"/>
+    <use href="#downArrow" x="3" y="4" fill="#cc6600"/>
+    <use href="#downArrow" x="2.25" y="3" fill="#e07000"/>
+    <use href="#downArrow" x="1.5" y="2" fill="#f08000"/>
+    <use href="#downArrow" x="0.75" y="1" fill="#f59500"/>
+    
+    <!-- DOWN ARROW (Front Face & Highlight) -->
+    <use href="#downArrow" x="0" y="0" fill="url(#frontOrange)"/>
+    <use href="#downArrow" x="0" y="0" fill="none" stroke="url(#specular)" stroke-width="2"/>
+  </g>
+</svg>

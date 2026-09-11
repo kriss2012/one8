@@ -1,0 +1,2 @@
+LIBRARY_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/Flutter/Rust/$(CONFIGURATION)/$(PLATFORM_NAME)"
+OTHER_LDFLAGS = $(inherited) -limage_engine

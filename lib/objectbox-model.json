@@ -1,0 +1,71 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:3600473206471130881",
+      "lastPropertyId": "8:1422837674477831830",
+      "name": "CompressionHistoryModel",
+      "properties": [
+        {
+          "id": "1:6015656902727101552",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1804399586164108935",
+          "name": "originalPath",
+          "indexId": "1:8909184179453716877",
+          "type": 9,
+          "flags": 2048
+        },
+        {
+          "id": "3:3059497527113220085",
+          "name": "outputPath",
+          "type": 9
+        },
+        {
+          "id": "4:639845181412522347",
+          "name": "outputFileName",
+          "type": 9
+        },
+        {
+          "id": "5:8857507443483171961",
+          "name": "originalBytes",
+          "type": 6
+        },
+        {
+          "id": "6:2570105691793257623",
+          "name": "compressedBytes",
+          "type": 6
+        },
+        {
+          "id": "7:6360721508005066328",
+          "name": "timestamp",
+          "indexId": "2:4139996538920791190",
+          "type": 6,
+          "flags": 8
+        },
+        {
+          "id": "8:1422837674477831830",
+          "name": "format",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:3600473206471130881",
+  "lastIndexId": "2:4139996538920791190",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
