@@ -13,7 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Updated documentation, guides, and architectural references.
 - Preserved existing native Rust compression architecture and multi-threaded Rayon pipeline.
 - Preserved Dart raster fallback engine.
-- Preserved upstream MIT licensing and attribution to the original OneCompress project.
+- Released under the MIT License.
 
 ## [1.0.0] - 2026-07-22
 
