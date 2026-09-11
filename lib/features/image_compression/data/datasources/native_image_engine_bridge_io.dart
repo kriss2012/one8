@@ -172,8 +172,7 @@ String? _findLibraryPath() {
   }
 
   final environmentOverride =
-      Platform.environment['ONE8_IMAGE_ENGINE_LIB'] ??
-      Platform.environment['ONECOMPRESS_IMAGE_ENGINE_LIB'];
+      Platform.environment['ONE8_IMAGE_ENGINE_LIB'];
   if (environmentOverride != null && File(environmentOverride).existsSync()) {
     AppLog.info('Bridge', 'Using env override library path: $environmentOverride');
     return environmentOverride;
