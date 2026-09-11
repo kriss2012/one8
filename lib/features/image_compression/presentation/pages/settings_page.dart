@@ -185,8 +185,8 @@ class SettingsPage extends StatelessWidget {
                     _buildSettingRow(
                       context,
                       icon: HugeIcons.strokeRoundedLicense,
-                      title: 'Open Source Attribution',
-                      subtitle: 'Derived from OneCompress (MIT License)',
+                      title: 'License',
+                      subtitle: 'MIT Open Source License',
                       trailingText: 'MIT',
                       isDark: isDark,
                     ),
