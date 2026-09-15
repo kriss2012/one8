@@ -11,12 +11,22 @@ val rustAndroidBuildMode =
         if ("release" in requestedTasks || "profile" in requestedTasks) "release" else "debug"
     }
 
+val keystoreProperties = java.util.Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.inputStream().use { keystoreProperties.load(it) }
+}
+
+val isWindows = System.getProperty("os.name").lowercase().contains("windows")
+val gitSh = java.io.File("C:/Program Files/Git/bin/sh.exe")
+val shExecutable: String = if (isWindows && gitSh.exists()) gitSh.absolutePath else "sh"
+
 val buildRustImageEngine by tasks.registering(Exec::class) {
     group = "build"
     description = "Builds the Rust image engine for Android ABIs."
     workingDir = repositoryRoot
     commandLine(
-        "sh",
+        shExecutable,
         "${repositoryRoot.absolutePath}/tool/build_rust_android.sh",
         rustAndroidBuildMode.get(),
     )
@@ -46,11 +56,35 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        create("release") {
+            val keyAliasProp = keystoreProperties.getProperty("keyAlias")
+            val keyPasswordProp = keystoreProperties.getProperty("keyPassword")
+            val storeFileProp = keystoreProperties.getProperty("storeFile")
+            val storePasswordProp = keystoreProperties.getProperty("storePassword")
+
+            if (storeFileProp != null && keyAliasProp != null && keyPasswordProp != null && storePasswordProp != null) {
+                val resolvedStoreFile = file(storeFileProp).takeIf { it.exists() } ?: rootProject.file(storeFileProp)
+                keyAlias = keyAliasProp
+                keyPassword = keyPasswordProp
+                storeFile = resolvedStoreFile
+                storePassword = storePasswordProp
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            val hasKeystore = keystorePropertiesFile.exists() &&
+                keystoreProperties.getProperty("storeFile")?.let { path ->
+                    file(path).exists() || rootProject.file(path).exists()
+                } == true
+
+            signingConfig = if (hasKeystore) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
         }
     }
 
