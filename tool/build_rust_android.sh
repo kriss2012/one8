@@ -115,8 +115,6 @@ build_target() {
   export "CARGO_TARGET_${env_key}_AR=$LLVM_BIN/llvm-ar"
   export "CC_${env_key}=$linker"
   export "AR_${env_key}=$LLVM_BIN/llvm-ar"
-  export "CC=$linker"
-  export "AR=$LLVM_BIN/llvm-ar"
 
   cargo build --manifest-path "$MANIFEST_PATH" --target "$cargo_target" $CARGO_ARGS
 
