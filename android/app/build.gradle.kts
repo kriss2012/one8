@@ -1,3 +1,7 @@
+import java.io.File
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
@@ -11,14 +15,16 @@ val rustAndroidBuildMode =
         if ("release" in requestedTasks || "profile" in requestedTasks) "release" else "debug"
     }
 
-val keystoreProperties = java.util.Properties()
+val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
 if (keystorePropertiesFile.exists()) {
-    keystorePropertiesFile.inputStream().use { keystoreProperties.load(it) }
+    FileInputStream(keystorePropertiesFile).use { stream ->
+        keystoreProperties.load(stream)
+    }
 }
 
 val isWindows = System.getProperty("os.name").lowercase().contains("windows")
-val gitSh = java.io.File("C:/Program Files/Git/bin/sh.exe")
+val gitSh = File("C:/Program Files/Git/bin/sh.exe")
 val shExecutable: String = if (isWindows && gitSh.exists()) gitSh.absolutePath else "sh"
 
 val buildRustImageEngine by tasks.registering(Exec::class) {
@@ -58,10 +64,10 @@ android {
 
     signingConfigs {
         create("release") {
-            val keyAliasProp = keystoreProperties.getProperty("keyAlias")
-            val keyPasswordProp = keystoreProperties.getProperty("keyPassword")
-            val storeFileProp = keystoreProperties.getProperty("storeFile")
-            val storePasswordProp = keystoreProperties.getProperty("storePassword")
+            val keyAliasProp: String? = keystoreProperties.getProperty("keyAlias")
+            val keyPasswordProp: String? = keystoreProperties.getProperty("keyPassword")
+            val storeFileProp: String? = keystoreProperties.getProperty("storeFile")
+            val storePasswordProp: String? = keystoreProperties.getProperty("storePassword")
 
             if (storeFileProp != null && keyAliasProp != null && keyPasswordProp != null && storePasswordProp != null) {
                 val resolvedStoreFile = file(storeFileProp).takeIf { it.exists() } ?: rootProject.file(storeFileProp)
@@ -75,10 +81,10 @@ android {
 
     buildTypes {
         release {
+            val storeFileProp: String? = keystoreProperties.getProperty("storeFile")
             val hasKeystore = keystorePropertiesFile.exists() &&
-                keystoreProperties.getProperty("storeFile")?.let { path ->
-                    file(path).exists() || rootProject.file(path).exists()
-                } == true
+                storeFileProp != null &&
+                (file(storeFileProp).exists() || rootProject.file(storeFileProp).exists())
 
             signingConfig = if (hasKeystore) {
                 signingConfigs.getByName("release")
