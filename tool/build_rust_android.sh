@@ -24,9 +24,14 @@ case "$BUILD_MODE" in
     ;;
 esac
 
+export PATH="$HOME/.cargo/bin:/c/Users/IMRD/.cargo/bin:$PATH"
+
 SDK_DIR="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
 if [ -z "${SDK_DIR}" ] && [ -f "$LOCAL_PROPERTIES" ]; then
   SDK_DIR=$(sed -n 's/^sdk.dir=//p' "$LOCAL_PROPERTIES" | tail -n 1)
+fi
+if [ -n "${SDK_DIR}" ]; then
+  SDK_DIR=$(echo "$SDK_DIR" | sed -e 's/\\:/:/g' -e 's/\\/\//g')
 fi
 
 if [ -z "${SDK_DIR}" ] || [ ! -d "$SDK_DIR" ]; then
@@ -42,6 +47,9 @@ if [ -z "${NDK_DIR}" ]; then
       break
     fi
   done
+fi
+if [ -n "${NDK_DIR}" ]; then
+  NDK_DIR=$(echo "$NDK_DIR" | sed -e 's/\\:/:/g' -e 's/\\/\//g')
 fi
 
 if [ -z "${NDK_DIR}" ] || [ ! -d "$NDK_DIR" ]; then
@@ -94,8 +102,12 @@ build_target() {
   env_key=$(printf '%s' "$cargo_target" | tr '[:lower:]-' '[:upper:]_')
   linker="$LLVM_BIN/$clang_triple-clang"
   if [ ! -x "$linker" ]; then
-    echo "Android linker not found: $linker" >&2
-    exit 1
+    if [ -f "$LLVM_BIN/$clang_triple-clang.cmd" ]; then
+      linker="$LLVM_BIN/$clang_triple-clang.cmd"
+    else
+      echo "Android linker not found: $linker" >&2
+      exit 1
+    fi
   fi
 
   export PATH="$LLVM_BIN:$PATH"
