@@ -172,3 +172,16 @@ make rust-engine-check
 
 ONE8 is published and maintained by **Krishna Patil** ([@kriss2012](https://github.com/kriss2012)) under the [MIT License](LICENSE).
 
+---
+
+## Security
+
+Please refer to [SECURITY.md](SECURITY.md) for vulnerability reporting guidelines.
+
+## Contributing
+
+Contributions are welcome! Please review [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and development process.
+
+## Author
+
+Developed and maintained by **[Krishna Patil](https://github.com/kriss2012)**.
